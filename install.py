@@ -1534,6 +1534,7 @@ def main():
     do_status = "--status" in args
     do_log = "--log" in args
     json_output = "--json" in args
+    do_all = "--all" in args
 
     if "--source" in args:
         idx = args.index("--source")
@@ -1624,16 +1625,59 @@ def main():
         print(json.dumps(result, indent=2, ensure_ascii=False))
         sys.exit(0 if result["success"] else 1)
 
+    # ── Install all repo skills ──
+    if do_all:
+        repo_skills_dir = Path(__file__).parent / "skills"
+        if not repo_skills_dir.exists():
+            print(json.dumps({"error": f"skills/ directory not found in repository root: {repo_skills_dir}"}, indent=2))
+            sys.exit(1)
+        
+        sources = []
+        for item in sorted(repo_skills_dir.iterdir()):
+            if item.is_dir() and (item / "SKILL.md").exists():
+                sources.append(item)
+                
+        if not sources:
+            print(json.dumps({"error": "No skills found in repo skills/ folder"}, indent=2))
+            sys.exit(1)
+            
+        verbose = not json_output
+        if verbose:
+            print(f"\n{_C.bold('=== Installing All Repo Skills ===')}\n")
+            
+        results = []
+        for src in sources:
+            r = install_single(str(src), name_override=None, force=True, dry_run=dry_run, verbose=verbose)
+            results.append(r)
+            
+        total = len(results)
+        success = sum(1 for r in results if r["success"])
+        failed = total - success
+        
+        summary = {
+            "mode": "all",
+            "total": total,
+            "success": success,
+            "failed": failed,
+            "results": results,
+        }
+        
+        if json_output:
+            print(json.dumps(summary, indent=2, ensure_ascii=False))
+        sys.exit(0 if failed == 0 else 1)
+
     # ── No arguments: show usage ──
-    if not source and not do_detect:
+    if not source and not do_detect and not do_all:
         print(f"\n{_C.bold(_C.cyan('Skill Installer v' + VERSION))}\n")
         print(f"  {_C.bold('Install:')}")
+        print(f"    --all                            Install/update all skills from repository")
         print(f"    --source <path>                  Install skill from path")
         print(f"    --source <path> --force           Overwrite if exists")
         print(f"    --source <path> --name <name>     Custom name override")
         print(f"    --source <path> --dry-run         Simulate without changes")
         print(f"    --detect                          Auto-detect uninstalled skills")
         print(f"    --detect --auto                   Detect and install all")
+
         print(f"")
         print(f"  {_C.bold('Manage:')}")
         print(f"    --uninstall <name>               Uninstall (with backup)")

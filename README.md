@@ -25,7 +25,9 @@ graph TD
 
 ---
 
-## 📂 Skills Customizadas Principais
+## 📂 Catálogo Completo de Skills (13 Skills)
+
+Este repositório contém a documentação e playbooks para **13 skills** fundamentais do ecossistema:
 
 | Nome da Skill | Objetivo e Escopo | Triggers Recomendados |
 | :--- | :--- | :--- |
@@ -38,6 +40,10 @@ graph TD
 | [🔗 rate-limiting-edge](skills/rate-limiting-edge/SKILL.md) | Limitação de taxa na Edge usando Upstash Redis. | `@rate-limiting-edge`, "rate limiter nextjs", "upstash rate limit" |
 | [🔗 resend-email](skills/resend-email/SKILL.md) | Emails transacionais com Resend SDK e React Email. | `@resend-email`, "email welcome resend", "react email template" |
 | [🔗 supabase-realtime](skills/supabase-realtime/SKILL.md) | Canais WebSockets, Presença e monitoramento de banco. | `@supabase-realtime`, "realtime presence", "broadcast client" |
+| [🔗 inngest](skills/inngest/SKILL.md) | Execução de jobs em background serverless e filas duráveis. | `@inngest`, "inngest background jobs", "durable execution" |
+| [🔗 trigger-dev](skills/trigger-dev/SKILL.md) | Agendamento e execução robusta de background tasks com TypeScript. | `@trigger-dev`, "trigger.dev tasks", "background jobs triggerdev" |
+| [🔗 sentry-automation](skills/sentry-automation/SKILL.md) | Rastreamento de erros, alertas de produção e monitoramento em tempo real. | `@sentry-automation`, "sentry integration", "sentry error tracking" |
+| [🔗 posthog-automation](skills/posthog-automation/SKILL.md) | Automação de feature flags, product analytics e rastreamento de eventos. | `@posthog-automation`, "posthog feature flags", "posthog product analytics" |
 
 ---
 
