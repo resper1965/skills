@@ -1,49 +1,63 @@
-# 🚀 Enterprise SaaS Agentic Skills Repository
+<div align="center">
+  <h1>🚀 Enterprise SaaS Agentic Ecosystem</h1>
+  <p><b>Advanced Skill Repository for Antigravity & AI Orchestrators</b></p>
+  
+  [![Ecosystem](https://img.shields.io/badge/Agent-Antigravity--CLI-blueviolet?style=for-the-badge)](https://github.com/resper1965/skills)
+  [![Knowledge Base](https://img.shields.io/badge/MCP-Context7-orange?style=for-the-badge)](#)
+  [![Skills](https://img.shields.io/badge/Active_Skills-258-success?style=for-the-badge)](CATALOG.md)
+  [![Security](https://img.shields.io/badge/Audit-OWASP%20Conformant-success?style=for-the-badge)](https://owasp.org)
+</div>
 
-[![Ecosystem](https://img.shields.io/badge/Agent-Antigravity--CLI-blueviolet?style=for-the-badge)](https://github.com/resper1965/skills)
-[![Drizzle](https://img.shields.io/badge/ORM-Drizzle-yellowgreen?style=for-the-badge)](https://orm.drizzle.team)
-[![Stack](https://img.shields.io/badge/Stack-Next.js%2015%20%7C%20Neon%20%7C%20Supabase-blue?style=for-the-badge)](https://nextjs.org)
-[![Security](https://img.shields.io/badge/Audit-OWASP%20Conformant-success?style=for-the-badge)](https://owasp.org)
+<br />
 
-Este repositório contém uma coleção curada de **Skills Agenticas de Nível Enterprise** focadas em desenvolvimento, arquitetura, segurança e observabilidade de sistemas SaaS modernos.
+Este repositório contém uma coleção curada e escalável de **Skills Agenticas de Nível Enterprise**, com 258 módulos focados em desenvolvimento, arquitetura, segurança e observabilidade para sistemas SaaS modernos.
 
-Cada skill foi projetada para ensinar agentes de IA (como **Claude Code CLI**, **Cursor**, **Gemini CLI** e **Antigravity**) as regras de negócio, convenções de código e workflows de segurança específicos do seu stack.
+Cada skill atua como um "livro de regras" que ensina os agentes de IA (como o **Antigravity**) convenções de código rigorosas, padrões arquiteturais e workflows específicos de segurança.
 
 ---
 
-## 🛠️ Tecnologias Cobertas
+## 🏗️ Arquitetura do Ecossistema
+
+O nosso ambiente agentico opera na interseção entre o orquestrador (Antigravity), o banco de conhecimentos em tempo real (Context7) e este repositório de skills.
 
 ```mermaid
 graph TD
-    A[SaaS App Client] -->|Next.js 15 / Hono| B[Edge Compute]
-    B -->|Drizzle ORM| C[Neon serverless Postgres]
-    A -->|Auth & WebSockets| D[Supabase Realtime]
-    B -->|Jobs / Filas| E[Inngest / Trigger.dev]
-    B -->|Emails| F[Resend SDK + React Email]
-    B -->|Telemetry| G[Sentry + PostHog]
+    A[🧠 Antigravity Orchestrator] -->|Instrui & Coordenada| B[🤖 Sub-Agentes]
+    
+    subgraph "Knowledge Layer"
+        C[🔗 Context7 MCP]
+        D[📚 Enterprise Skills Repo]
+    end
+    
+    A -->|Busca de Documentação Atualizada| C
+    A -->|Regras de Negócio e Workflows| D
+    
+    C -->|Docs de React, Next.js, Prisma, etc.| A
+    D -->|Convenções, Segurança e Ops| A
+    
+    classDef primary fill:#2563eb,stroke:#1e40af,stroke-width:2px,color:#fff
+    classDef secondary fill:#ea580c,stroke:#c2410c,stroke-width:2px,color:#fff
+    classDef tertiary fill:#16a34a,stroke:#15803d,stroke-width:2px,color:#fff
+    
+    class A primary
+    class C secondary
+    class D tertiary
 ```
+
+### 🧠 A Importância do Context7 MCP
+Este ecossistema possui uma **diretriz global estrita**: todas as consultas sobre bibliotecas, frameworks, SDKs e APIs (como React, Next.js, Prisma, Vercel) **devem obrigatoriamente** passar pelo **Context7 MCP**. 
+- **Prevenção de Alucinações:** As LLMs não usam dados desatualizados do próprio treinamento.
+- **Sempre Atualizado:** O Context7 faz o pull da documentação em tempo real, garantindo que as skills apliquem as sintaxes corretas da versão mais recente da ferramenta.
 
 ---
 
-## 📂 Catálogo Completo de Skills (13 Skills)
+## 📚 Catálogo de Skills (258 Ativas)
 
-Este repositório contém a documentação e playbooks para **13 skills** fundamentais do ecossistema:
+Para manter este README limpo e performático, o catálogo completo de skills foi movido para um arquivo dedicado. 
 
-| Nome da Skill | Objetivo e Escopo | Triggers Recomendados |
-| :--- | :--- | :--- |
-| [🔗 neon-branching-workflow](skills/neon-branching-workflow/SKILL.md) | Gerenciar Preview Databases por PR no Neon Postgres. | `@neon-branching-workflow`, "preview database", "neon branches" |
-| [🔗 stack-conventions](skills/stack-conventions/SKILL.md) | Padronizar convenções de Next.js 15, Drizzle, Hono e fp-ts. | `@stack-conventions`, "convenções do stack", "padrão de projeto" |
-| [🔗 saas-launch-checklist](skills/saas-launch-checklist/SKILL.md) | Checklist de deploy em produção (Performance, Segurança, Ops). | `@saas-launch-checklist`, "launch checklist", "produção" |
-| [🔗 zero-downtime-migrations](skills/zero-downtime-migrations/SKILL.md) | Migrações Postgres seguras (`lock_timeout`, `CONCURRENTLY`). | `@zero-downtime-migrations`, "zero-downtime migration", "alter table" |
-| [🔗 audit-logging](skills/audit-logging/SKILL.md) | Logs de auditoria imutáveis com Triggers e Middleware. | `@audit-logging`, "trilha de auditoria", "audit log schema" |
-| [🔗 webhook-handling](skills/webhook-handling/SKILL.md) | Webhooks seguros com verificação HMAC e idempotência. | `@webhook-handling`, "webhook stripe", "idempotency key" |
-| [🔗 rate-limiting-edge](skills/rate-limiting-edge/SKILL.md) | Limitação de taxa na Edge usando Upstash Redis. | `@rate-limiting-edge`, "rate limiter nextjs", "upstash rate limit" |
-| [🔗 resend-email](skills/resend-email/SKILL.md) | Emails transacionais com Resend SDK e React Email. | `@resend-email`, "email welcome resend", "react email template" |
-| [🔗 supabase-realtime](skills/supabase-realtime/SKILL.md) | Canais WebSockets, Presença e monitoramento de banco. | `@supabase-realtime`, "realtime presence", "broadcast client" |
-| [🔗 inngest](skills/inngest/SKILL.md) | Execução de jobs em background serverless e filas duráveis. | `@inngest`, "inngest background jobs", "durable execution" |
-| [🔗 trigger-dev](skills/trigger-dev/SKILL.md) | Agendamento e execução robusta de background tasks com TypeScript. | `@trigger-dev`, "trigger.dev tasks", "background jobs triggerdev" |
-| [🔗 sentry-automation](skills/sentry-automation/SKILL.md) | Rastreamento de erros, alertas de produção e monitoramento em tempo real. | `@sentry-automation`, "sentry integration", "sentry error tracking" |
-| [🔗 posthog-automation](skills/posthog-automation/SKILL.md) | Automação de feature flags, product analytics e rastreamento de eventos. | `@posthog-automation`, "posthog feature flags", "posthog product analytics" |
+> 👉 **[Acessar o Catálogo Completo de Skills (CATALOG.md)](CATALOG.md)**
+
+Lá você encontrará a listagem alfabética de todas as 258 skills legadas e curadas, com suas respectivas descrições e links diretos. Este catálogo é gerado automaticamente pelo nosso script CI.
 
 ---
 
@@ -51,6 +65,7 @@ Este repositório contém a documentação e playbooks para **13 skills** fundam
 
 ### Requisitos
 - **Python 3.10+** instalado.
+- Ambiente **Antigravity** configurado localmente.
 
 ### Como Sincronizar Tudo no seu Agente Local
 
@@ -60,36 +75,22 @@ git clone https://github.com/resper1965/skills.git
 cd skills
 ```
 
-2. Execute o script de instalação para copiar e registrar todas as skills no seu agente de IA local (CLI do Claude Code, Gemini CLI, etc.):
+2. Execute o script de instalação para copiar e registrar todas as skills no seu ambiente:
 ```bash
 python install.py --all
 ```
 
 ---
 
-## 📦 Como Usar as Skills
+## 🛠️ Contribuindo e Regras (Quality Gate)
 
-### 1. Invocação Explícita
-Você pode instruir a IA a carregar as regras de uma skill específica usando `@`:
-> *"Use `@stack-conventions` para criar a rota de listagem de usuários."*
+A adição de novas skills ou alteração de regras existentes deve seguir o padrão rigoroso de qualidade. O repositório possui validação automática (Quality Gates).
 
-### 2. Ativação Inteligente
-As skills contêm palavras-chave mapeadas. Se você disser *"Adicione uma coluna no banco sem derrubar a produção"*, a IA ativará automaticamente as regras de `@zero-downtime-migrations`.
+> 👉 **[Leia as Diretrizes de Contribuição (CONTRIBUTING.md)](CONTRIBUTING.md)**
 
-### 3. Upload para Claude.ai Web/Desktop
-Gere pacotes ZIP compatíveis para subir no painel do Claude.ai na Web:
-```bash
-python package.py --all
-```
-Os arquivos gerados estarão disponíveis no diretório `/dist`. Basta fazer o upload na página de configurações do Claude.ai (Habilidades/Skills).
-
----
-
-## 🚦 Validação Pré-Commit (Quality Gate)
-
-Este repositório possui validação automática. Para ativar o hook de Git que impede commits de skills inválidas:
+Para ativar o hook de Git que impede commits de skills inválidas:
 ```bash
 # Habilita o pre-commit hook
 git config core.hooksPath .githooks
 ```
-Toda vez que você rodar `git commit`, o validador verificará o YAML frontmatter e auditará arquivos de segredos vazados.
+Toda vez que você rodar `git commit`, o validador verificará o YAML frontmatter e auditará os arquivos para evitar vazamento de segredos.
