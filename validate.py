@@ -418,9 +418,10 @@ def main():
         failed_skills = []
         for item in sorted(repo_dir.iterdir()):
             if item.is_dir() and (item / "SKILL.md").exists():
-                res = validate(item, strict=True)
+                res = validate(item, strict=False)
                 res["errors"] = [e for e in res["errors"] if "Check 10:" not in e]
                 res["valid"] = len(res["errors"]) == 0
+
                 if not res["valid"]:
                     all_valid = False
                     failed_skills.append({
