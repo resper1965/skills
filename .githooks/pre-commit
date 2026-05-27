@@ -1,0 +1,10 @@
+#!/bin/sh
+# Git pre-commit hook to validate changed skills
+echo "=== Running Skill Validation Quality Gate ==="
+python validate.py --repo-check
+if [ $? -ne 0 ]; then
+  echo "❌ Committing blocked: Skill validation failed!"
+  exit 1
+fi
+echo "✅ Quality gate passed!"
+exit 0
